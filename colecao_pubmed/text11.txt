@@ -1,0 +1,36 @@
+
+IPMiner: hidden ncRNA-protein interaction sequential pattern mining with stacked 
+autoencoder for accurate computational prediction.
+
+BACKGROUND: Non-coding RNAs (ncRNAs) play crucial roles in many biological
+processes, such as post-transcription of gene regulation. ncRNAs mainly function 
+through interaction with RNA binding proteins (RBPs). To understand the function 
+of a ncRNA, a fundamental step is to identify which protein is involved into its 
+interaction. Therefore it is promising to computationally predict RBPs, where the
+major challenge is that the interaction pattern or motif is difficult to be
+found.
+RESULTS: In this study, we propose a computational method IPMiner (Interaction
+Pattern Miner) to predict ncRNA-protein interactions from sequences, which makes 
+use of deep learning and further improves its performance using stacked
+ensembling. One of the IPMiner's typical merits is that it is able to mine the
+hidden sequential interaction patterns from sequence composition features of
+protein and RNA sequences using stacked autoencoder, and then the learned hidden 
+features are fed into random forest models. Finally, stacked ensembling is used
+to integrate different predictors to further improve the prediction performance. 
+The experimental results indicate that IPMiner achieves superior performance on
+the tested lncRNA-protein interaction dataset with an accuracy of 0.891,
+sensitivity of 0.939, specificity of 0.831, precision of 0.945 and Matthews
+correlation coefficient of 0.784, respectively. We further comprehensively
+investigate IPMiner on other RNA-protein interaction datasets, which yields
+better performance than the state-of-the-art methods, and the performance has an 
+increase of over 20 % on some tested benchmarked datasets. In addition, we
+further apply IPMiner for large-scale prediction of ncRNA-protein network, that
+achieves promising prediction performance.
+CONCLUSION: By integrating deep neural network and stacked ensembling, from
+simple sequence composition features, IPMiner can automatically learn high-level 
+abstraction features, which had strong discriminant ability for RNA-protein
+detection. IPMiner achieved high performance on our constructed lncRNA-protein
+benchmark dataset and other RNA-protein datasets. IPMiner tool is available at
+http://www.csbio.sjtu.edu.cn/bioinf/IPMiner .
+
+

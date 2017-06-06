@@ -1,0 +1,24 @@
+
+HLA class I binding prediction via convolutional neural networks.
+
+Motivation: Many biological processes are governed by protein-ligand
+interactions. One such example is the recognition of self and nonself cells by
+the immune system. This immune response process is regulated by the major
+histocompatibility complex (MHC) protein which is encoded by the human leukocyte 
+antigen (HLA) complex. Understanding the binding potential between MHC and
+peptides can lead to the design of more potent, peptide-based vaccines and
+immunotherapies for infectious autoimmune diseases.
+Results: We apply machine learning techniques from the natural language
+processing (NLP) domain to address the task of MHC-peptide binding prediction.
+More specifically, we introduce a new distributed representation of amino acids, 
+name HLA-Vec, that can be used for a variety of downstream proteomic machine
+learning tasks. We then propose a deep convolutional neural network architecture,
+name HLA-CNN, for the task of HLA class I-peptide binding prediction.
+Experimental results show combining the new distributed representation with our
+HLA-CNN architecture acheives state-of-the-art results in the majority of the
+latest two Immune Epitope Database (IEDB) weekly automated benchmark datasets. We
+further apply our model to predict binding on the human genome and identify 15
+genes with potential for self binding.
+
+
+
