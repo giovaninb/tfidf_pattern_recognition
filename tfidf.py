@@ -6,12 +6,11 @@ Titulo: tfidf.py
 Author: Giovani Nícolas Bettoni
 
 '''
-
+from __future__ import division
 
 import string
 import re
 import nltk
-import string
 import pprint
 from nltk.corpus import stopwords
 from nltk import word_tokenize
@@ -23,109 +22,91 @@ doc_list = []
 
 # inicianting pre-processing of these 20 texts
 
+stop = stopwords.words('english') + list(string.punctuation)
+
 print (" -> Starting pre-processing...")
 
 arquivo1 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text1.txt", "r")
 text1 = arquivo1.read()
-stop1 = stopwords.words('english') + list(string.punctuation)
-tokens1 = [i for i in word_tokenize(text1.lower()) if i not in stop1]
+tokens1 = [i for i in word_tokenize(text1.lower()) if i not in stop]
 print tokens1
 
 arquivo2 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text2.txt", "r")
 text2 = arquivo2.read()
-stop2 = stopwords.words('english') + list(string.punctuation)
-tokens2 = [i for i in word_tokenize(text2.lower()) if i not in stop2]
+tokens2 = [i for i in word_tokenize(text2.lower()) if i not in stop]
 
 arquivo3 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text3.txt", "r")
 text3 = arquivo3.read()
-stop3 = stopwords.words('english') + list(string.punctuation)
-tokens3 = [i for i in word_tokenize(text3.lower()) if i not in stop3]
+tokens3 = [i for i in word_tokenize(text3.lower()) if i not in stop]
 
 #just for tests
 # arquivo4 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text4.txt", "r")
 # text4 = arquivo4.read()
-# stop4 = stopwords.words('english') + list(string.punctuation)
-# tokens4 = [i for i in word_tokenize(text4.lower()) if i not in stop4]
+# tokens4 = [i for i in word_tokenize(text4.lower()) if i not in stop]
 #
 # arquivo5 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text5.txt", "r")
 # text5 = arquivo5.read()
-# stop5 = stopwords.words('english') + list(string.punctuation)
-# tokens5 = [i for i in word_tokenize(text5.lower()) if i not in stop5]
+# tokens5 = [i for i in word_tokenize(text5.lower()) if i not in stop]
 #
 # arquivo6 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text6.txt", "r")
 # text6 = arquivo6.read()
-# stop6 = stopwords.words('english') + list(string.punctuation)
-# tokens6 = [i for i in word_tokenize(text6.lower()) if i not in stop6]
+# tokens6 = [i for i in word_tokenize(text6.lower()) if i not in stop]
 #
 # arquivo7 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text7.txt", "r")
 # text7 = arquivo7.read()
-# stop7 = stopwords.words('english') + list(string.punctuation)
-# tokens7 = [i for i in word_tokenize(text7.lower()) if i not in stop7]
+# tokens7 = [i for i in word_tokenize(text7.lower()) if i not in stop]
 #
 # arquivo8 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text8.txt", "r")
 # text8 = arquivo8.read()
-# stop8 = stopwords.words('english') + list(string.punctuation)
-# tokens8 = [i for i in word_tokenize(text8.lower()) if i not in stop8]
+# tokens8 = [i for i in word_tokenize(text8.lower()) if i not in stop]
 #
 # arquivo9 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text9.txt", "r")
 # text9 = arquivo9.read()
-# stop9 = stopwords.words('english') + list(string.punctuation)
-# tokens9 = [i for i in word_tokenize(text9.lower()) if i not in stop9]
+# tokens9 = [i for i in word_tokenize(text9.lower()) if i not in stop]
 #
 # arquivo10 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text10.txt", "r")
 # text10 = arquivo10.read()
-# stop10 = stopwords.words('english') + list(string.punctuation)
-# tokens10 = [i for i in word_tokenize(text10.lower()) if i not in stop10]
+# tokens10 = [i for i in word_tokenize(text10.lower()) if i not in stop]
 #
 # arquivo11 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text11.txt", "r")
 # text11 = arquivo11.read()
-# stop11 = stopwords.words('english') + list(string.punctuation)
-# tokens11 = [i for i in word_tokenize(text11.lower()) if i not in stop11]
+# tokens11 = [i for i in word_tokenize(text11.lower()) if i not in stop]
 #
 # arquivo12 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text12.txt", "r")
 # text12 = arquivo12.read()
-# stop12 = stopwords.words('english') + list(string.punctuation)
-# tokens12 = [i for i in word_tokenize(text12.lower()) if i not in stop12]
+# tokens12 = [i for i in word_tokenize(text12.lower()) if i not in stop]
 #
 # arquivo13 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text13.txt", "r")
 # text13 = arquivo13.read()
-# stop13 = stopwords.words('english') + list(string.punctuation)
-# tokens13 = [i for i in word_tokenize(text13.lower()) if i not in stop13]
+# tokens13 = [i for i in word_tokenize(text13.lower()) if i not in stop]
 #
 # arquivo14 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text14.txt", "r")
 # text14 = arquivo14.read()
-# stop14 = stopwords.words('english') + list(string.punctuation)
-# tokens14 = [i for i in word_tokenize(text14.lower()) if i not in stop14]
+# tokens14 = [i for i in word_tokenize(text14.lower()) if i not in stop]
 #
 # arquivo15 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text15.txt", "r")
 # text15 = arquivo15.read()
-# stop15 = stopwords.words('english') + list(string.punctuation)
-# tokens15 = [i for i in word_tokenize(text15.lower()) if i not in stop15]
+# tokens15 = [i for i in word_tokenize(text15.lower()) if i not in stop]
 #
 # arquivo16 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text16.txt", "r")
 # text16 = arquivo16.read()
-# stop16 = stopwords.words('english') + list(string.punctuation)
-# tokens16 = [i for i in word_tokenize(text16.lower()) if i not in stop16]
+# tokens16 = [i for i in word_tokenize(text16.lower()) if i not in stop]
 #
 # arquivo17 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text17.txt", "r")
 # text17 = arquivo17.read()
-# stop17 = stopwords.words('english') + list(string.punctuation)
-# tokens17 = [i for i in word_tokenize(text17.lower()) if i not in stop17]
+# tokens17 = [i for i in word_tokenize(text17.lower()) if i not in stop]
 #
 # arquivo18 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text18.txt", "r")
 # text18 = arquivo18.read()
-# stop18 = stopwords.words('english') + list(string.punctuation)
-# tokens18 = [i for i in word_tokenize(text18.lower()) if i not in stop18]
+# tokens18 = [i for i in word_tokenize(text18.lower()) if i not in stop]
 #
 # arquivo19 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text19.txt", "r")
 # text19 = arquivo19.read()
-# stop19 = stopwords.words('english') + list(string.punctuation)
-# tokens19 = [i for i in word_tokenize(text19.lower()) if i not in stop19]
+# tokens19 = [i for i in word_tokenize(text19.lower()) if i not in stop]
 #
 # arquivo20 = open("/home/gnbettoni/PycharmProjects/tfidf_pattern/colecao_pubmed/text20.txt", "r")
 # text20 = arquivo20.read()
-# stop20 = stopwords.words('english') + list(string.punctuation)
-# tokens20 = [i for i in word_tokenize(text20.lower()) if i not in stop20]
+# tokens20 = [i for i in word_tokenize(text20.lower()) if i not in stop]
 
 print "\n >>> Ending of pre-processing!"
 
