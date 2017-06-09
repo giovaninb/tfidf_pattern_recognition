@@ -30,7 +30,5 @@ CONCLUSION: By integrating deep neural network and stacked ensembling, from
 simple sequence composition features, IPMiner can automatically learn high-level 
 abstraction features, which had strong discriminant ability for RNA-protein
 detection. IPMiner achieved high performance on our constructed lncRNA-protein
-benchmark dataset and other RNA-protein datasets. IPMiner tool is available at
-http://www.csbio.sjtu.edu.cn/bioinf/IPMiner .
-
+benchmark dataset and other RNA-protein datasets.
 
